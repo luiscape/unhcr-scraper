@@ -1,4 +1,16 @@
 #!/usr/bin/Rscript
+#### Scraper to extact data from UNHCR's API. ####
+# 
+# The API is still very experimental and works in limited ways. 
+# For example, in every 'instance' the structure of the API 
+# changes slightly depending on the content that is available
+# at the time. Navigating the JSON output is being a challenge. 
+#
+# Here I am making a query every day and storing the results in
+# a database using ScraperWiki's platform. After fetching the data
+# each new collection is compared with an old collection. 
+# Collections that are new are added to 
+# the database. The old ones are simply kept.
 
 #### Scraper to extact data from UNHCR's API. ####
 
@@ -58,7 +70,7 @@ PopulationNumbers <- function() {
             else { 
                 itModuleType[j] <- data[[i]][[1]]$population[[j]]$module_type 
             }
-                                            
+            
             # Fetching value.
             if (j == 1) { itValue <- NULL ; itValue <- data[[i]][[1]]$population[[j]]$value }
             else { itValue[j] <- data[[i]][[1]]$population[[j]]$value }
@@ -71,7 +83,7 @@ PopulationNumbers <- function() {
                                             itValue, itUpdatedAt)
             
             names(instanceCollector) <- c('name', 'module_name', 
-                                           'module_type', 'value', 'updated_at')
+                                          'module_type', 'value', 'updated_at')
         }
         
         # Combining all collections.
