@@ -108,7 +108,7 @@ writeTables <- function() {
     }
     else { 
         oldData <- dbReadTable(db, "unhcr_real_time")
-        newData <- merge(unhcrRealTimePopNumbers, y, all = TRUE)
+        newData <- merge(unhcrRealTimePopNumbers, oldData, all = TRUE)
         dbWriteTable(db, "unhcr_real_time", newData, row.names = FALSE, overwrite = TRUE)
     }
     
