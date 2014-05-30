@@ -19,9 +19,9 @@
 # This function reads the files in those folders and 
 # loads them into a single data.frame.
 LoadHistorical <- function() {
-    folder_list <- list.files("/home/data/portal")
+    folder_list <- list.files("data/portal")
     for (i in 1:length(folder_list)) {
-        folder_location <- paste("/home/data/portal/", folder_list[i], sep = "")
+        folder_location <- paste("data/portal/", folder_list[i], sep = "")
         file_list <- list.files(folder_location)
         for (j in 1:length(file_list)) {
                 file_location <- paste(folder_location, "/", file_list[j], sep = "")
