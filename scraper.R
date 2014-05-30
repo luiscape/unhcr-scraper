@@ -12,8 +12,6 @@
 # Collections that are new are added to 
 # the database. The old ones are simply kept.
 
-#### Scraper to extact data from UNHCR's API. ####
-
 # library(jsonlite)
 library(rjson)
 library(RCurl)
