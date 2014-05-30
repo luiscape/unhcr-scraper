@@ -1,4 +1,5 @@
 #!/usr/bin/Rscript
+
 #### Scraper to extact data from UNHCR's API. ####
 # 
 # The API is still very experimental and works in limited ways. 
@@ -98,7 +99,7 @@ PopulationNumbers <- function() {
 # Storing the fresh collection in a data.frame
 unhcrRealTimePopNumbers <- PopulationNumbers()
 
-message('Storing data in a db.')
+message('Storing data in a database.')
 db <- dbConnect(SQLite(), dbname="scraperwiki.sqlite")
 
 writeTables <- function() { 
@@ -129,9 +130,9 @@ writeTables <- function() {
 writeTables()
 
 # for testing purposes
-dbListTables(db)
-x <- dbReadTable(db, "unhcr_real_time")
-y <- dbReadTable(db, "_scraper_metadata")
+# dbListTables(db)
+# x <- dbReadTable(db, "unhcr_real_time")
+# y <- dbReadTable(db, "_scraper_metadata")
 
 dbDisconnect(db)
-message('done')
+message('Done!')
